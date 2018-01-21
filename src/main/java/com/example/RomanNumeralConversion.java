@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.google.common.primitives.Chars.asList;
 import static java.util.stream.Collectors.joining;
 
 public class RomanNumeralConversion {
@@ -29,18 +30,55 @@ public class RomanNumeralConversion {
         }
 
         static Numerals[] getDigitGroupForPowerOfTen(int exponent) {
-            switch(exponent) {
-                case 3: return new Numerals[]{M, null, null};
-                case 2: return new Numerals[]{C, D, M};
-                case 1: return new Numerals[]{X, L, C};
-                case 0: return new Numerals[]{I, V, X};
+            switch (exponent) {
+                case 3:
+                    return new Numerals[]{M, null, null};
+                case 2:
+                    return new Numerals[]{C, D, M};
+                case 1:
+                    return new Numerals[]{X, L, C};
+                case 0:
+                    return new Numerals[]{I, V, X};
             }
             throw new IllegalArgumentException("illegal argument, must be in [0, 3]");
+        }
+
+        static Numerals forChar(char c) {
+            switch (c) {
+                case 'M':
+                    return M;
+                case 'D':
+                    return D;
+                case 'C':
+                    return C;
+                case 'L':
+                    return L;
+                case 'X':
+                    return X;
+                case 'V':
+                    return V;
+                case 'I':
+                    return I;
+                default:
+                    throw new IllegalArgumentException("illegal argument, must be a roman digit");
+            }
         }
     }
 
     public static int convertFromRomanNumerals(String romanNumerals) {
-        return 1;
+        int lastValue = 0;
+        int result = 0;
+        List<Character> chars = asList(romanNumerals.toCharArray());
+        for (char c : Lists.reverse(chars)) {
+            Numerals numerals = Numerals.forChar(c);
+            if (numerals.getValue() >= lastValue) {
+                result += numerals.getValue();
+                lastValue = numerals.getValue();
+            } else {
+                result -= numerals.getValue();
+            }
+        }
+        return result;
     }
 
     public static String convertToRomanNumerals(int number) {
@@ -69,16 +107,26 @@ public class RomanNumeralConversion {
 
     private static int[] groupingForDigit(int digit) {
         switch (digit) {
-            case 1: return new int[]{0};
-            case 2: return new int[]{0, 0};
-            case 3: return new int[]{0, 0, 0};
-            case 4: return new int[]{0, 1};
-            case 5: return new int[]{1};
-            case 6: return new int[]{1, 0};
-            case 7: return new int[]{1, 0, 0};
-            case 8: return new int[]{1, 0, 0, 0};
-            case 9: return new int[]{0, 2};
-            default: throw new IllegalArgumentException("invalid digit, must be in [1, 9] at this point");
+            case 1:
+                return new int[]{0};
+            case 2:
+                return new int[]{0, 0};
+            case 3:
+                return new int[]{0, 0, 0};
+            case 4:
+                return new int[]{0, 1};
+            case 5:
+                return new int[]{1};
+            case 6:
+                return new int[]{1, 0};
+            case 7:
+                return new int[]{1, 0, 0};
+            case 8:
+                return new int[]{1, 0, 0, 0};
+            case 9:
+                return new int[]{0, 2};
+            default:
+                throw new IllegalArgumentException("invalid digit, must be in [1, 9] at this point");
         }
     }
 
@@ -95,4 +143,8 @@ public class RomanNumeralConversion {
         }
         return digits;
     }
+
+//    public static void main(String[] args) {
+//        System.out.println((RomanNumeralConversion.convertToRomanNumerals(17)));
+//    }
 }
