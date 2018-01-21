@@ -11,7 +11,7 @@ import static com.example.RomanNumeralConversion.convertFromRomanNumerals;
 import static com.example.RomanNumeralConversion.convertToRomanNumerals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RomanNumeralConversionTest {
+class RomanNumeralConversionTest {
 
     static Stream<Arguments> conversionTestData() {
         return Stream.of(
@@ -96,14 +96,27 @@ public class RomanNumeralConversionTest {
 
     @ParameterizedTest
     @MethodSource(names = "conversionTestData")
-    public void test_convertFromRomanNumerals(String romanNumerals, int number) {
+    void test_convertFromRomanNumerals(String romanNumerals, int number) {
         assertEquals(number, convertFromRomanNumerals(romanNumerals));
     }
 
     @ParameterizedTest
     @MethodSource(names = "conversionTestData")
-    public void test_convertToRomanNumerals(String romanNumerals, int number) {
+    void test_convertToRomanNumerals(String romanNumerals, int number) {
         assertEquals(romanNumerals, convertToRomanNumerals(number));
     }
 
+    static Stream<Arguments> nonStandardTestData() {
+        return Stream.of(
+                ObjectArrayArguments.create("IIX", 8),
+                ObjectArrayArguments.create("IL", 49),
+                ObjectArrayArguments.create("IC", 99)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource(names = "nonStandardTestData")
+    void test_that_convertFromRomanNumerals_recognizes_non_standard_numerals(String romanNumerals, int number) {
+        assertEquals(number, convertFromRomanNumerals(romanNumerals));
+    }
 }

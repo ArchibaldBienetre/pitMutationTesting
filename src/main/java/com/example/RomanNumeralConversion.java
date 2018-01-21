@@ -65,7 +65,7 @@ public class RomanNumeralConversion {
         }
     }
 
-    public static int convertFromRomanNumerals(String romanNumerals) {
+    static int convertFromRomanNumerals(String romanNumerals) {
         int lastValue = 0;
         int result = 0;
         List<Character> chars = asList(romanNumerals.toCharArray());
@@ -81,7 +81,7 @@ public class RomanNumeralConversion {
         return result;
     }
 
-    public static String convertToRomanNumerals(int number) {
+    static String convertToRomanNumerals(int number) {
         if (number < 1 || number > 3999) {
             throw new IllegalArgumentException("must be in [1, 3999]");
         }
@@ -144,7 +144,4 @@ public class RomanNumeralConversion {
         return digits;
     }
 
-//    public static void main(String[] args) {
-//        System.out.println((RomanNumeralConversion.convertToRomanNumerals(17)));
-//    }
 }
