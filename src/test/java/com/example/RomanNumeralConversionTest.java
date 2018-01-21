@@ -88,7 +88,9 @@ public class RomanNumeralConversionTest {
                 ObjectArrayArguments.create("MDCCLXXVI", 1776),
                 ObjectArrayArguments.create("MCMLIV", 1954),
                 ObjectArrayArguments.create("MCMXC", 1990),
-                ObjectArrayArguments.create("MMXIV", 2014)
+                ObjectArrayArguments.create("MMXIV", 2014),
+
+                ObjectArrayArguments.create("MMMCMXCIX", 3999)
         );
     }
 
