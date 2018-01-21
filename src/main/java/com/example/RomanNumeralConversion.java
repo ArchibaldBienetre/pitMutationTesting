@@ -66,6 +66,9 @@ public class RomanNumeralConversion {
     }
 
     static int convertFromRomanNumerals(String romanNumerals) {
+        if (romanNumerals.isEmpty()) {
+            throw new IllegalArgumentException("empty String");
+        }
         int lastValue = 0;
         int result = 0;
         List<Character> chars = asList(romanNumerals.toCharArray());

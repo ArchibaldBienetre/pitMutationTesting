@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,6 +11,7 @@ import java.util.stream.Stream;
 import static com.example.RomanNumeralConversion.convertFromRomanNumerals;
 import static com.example.RomanNumeralConversion.convertToRomanNumerals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RomanNumeralConversionTest {
 
@@ -106,17 +108,32 @@ class RomanNumeralConversionTest {
         assertEquals(romanNumerals, convertToRomanNumerals(number));
     }
 
-    static Stream<Arguments> nonStandardTestData() {
+    static Stream<Arguments> nonStandardConvertFromRomanNumeralsTestData() {
         return Stream.of(
                 ObjectArrayArguments.create("IIX", 8),
+                ObjectArrayArguments.create("XXXX", 40),
                 ObjectArrayArguments.create("IL", 49),
                 ObjectArrayArguments.create("IC", 99)
         );
     }
 
     @ParameterizedTest
-    @MethodSource(names = "nonStandardTestData")
+    @MethodSource(names = "nonStandardConvertFromRomanNumeralsTestData")
     void test_that_convertFromRomanNumerals_recognizes_non_standard_numerals(String romanNumerals, int number) {
         assertEquals(number, convertFromRomanNumerals(romanNumerals));
+    }
+
+    @Test
+    void test_convertFromRomanNumerals_illegal_input() {
+        assertThrows(IllegalArgumentException.class, () -> convertToRomanNumerals(4001));
+        assertThrows(IllegalArgumentException.class, () -> convertToRomanNumerals(4000));
+        assertThrows(IllegalArgumentException.class, () -> convertToRomanNumerals(0));
+        assertThrows(IllegalArgumentException.class, () -> convertToRomanNumerals(-1));
+    }
+
+    @Test
+    void test_convertToRomanNumerals_illegal_input() {
+        assertThrows(IllegalArgumentException.class, () -> convertFromRomanNumerals("Z"));
+        assertThrows(IllegalArgumentException.class, () -> convertFromRomanNumerals(""));
     }
 }
