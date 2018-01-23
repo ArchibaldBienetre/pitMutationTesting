@@ -65,7 +65,7 @@ public class RomanNumeralConversion {
         }
     }
 
-    static int convertFromRomanNumerals(String romanNumerals) {
+    public static int convertFromRomanNumerals(String romanNumerals) {
         if (romanNumerals.isEmpty()) {
             throw new IllegalArgumentException("empty String");
         }
@@ -84,7 +84,7 @@ public class RomanNumeralConversion {
         return result;
     }
 
-    static String convertToRomanNumerals(int number) {
+    public static String convertToRomanNumerals(int number) {
         if (number < 1 || number > 3999) {
             throw new IllegalArgumentException("must be in [1, 3999]");
         }

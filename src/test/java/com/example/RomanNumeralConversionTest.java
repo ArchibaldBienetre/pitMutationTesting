@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ObjectArrayArguments;
 
 import java.util.stream.Stream;
 
@@ -17,108 +16,108 @@ class RomanNumeralConversionTest {
 
     static Stream<Arguments> conversionTestData() {
         return Stream.of(
-                ObjectArrayArguments.create("I", 1),
-                ObjectArrayArguments.create("II", 2),
-                ObjectArrayArguments.create("III", 3),
-                ObjectArrayArguments.create("IV", 4),
-                ObjectArrayArguments.create("V", 5),
-                ObjectArrayArguments.create("VI", 6),
-                ObjectArrayArguments.create("VII", 7),
-                ObjectArrayArguments.create("VIII", 8),
-                ObjectArrayArguments.create("IX", 9),
-                ObjectArrayArguments.create("X", 10),
-                ObjectArrayArguments.create("XI", 11),
-                ObjectArrayArguments.create("XII", 12),
-                ObjectArrayArguments.create("XIII", 13),
-                ObjectArrayArguments.create("XIV", 14),
-                ObjectArrayArguments.create("XV", 15),
-                ObjectArrayArguments.create("XVI", 16),
-                ObjectArrayArguments.create("XVII", 17),
-                ObjectArrayArguments.create("XVIII", 18),
-                ObjectArrayArguments.create("XIX", 19),
-                ObjectArrayArguments.create("XX", 20),
+                Arguments.of("I", 1),
+                Arguments.of("II", 2),
+                Arguments.of("III", 3),
+                Arguments.of("IV", 4),
+                Arguments.of("V", 5),
+                Arguments.of("VI", 6),
+                Arguments.of("VII", 7),
+                Arguments.of("VIII", 8),
+                Arguments.of("IX", 9),
+                Arguments.of("X", 10),
+                Arguments.of("XI", 11),
+                Arguments.of("XII", 12),
+                Arguments.of("XIII", 13),
+                Arguments.of("XIV", 14),
+                Arguments.of("XV", 15),
+                Arguments.of("XVI", 16),
+                Arguments.of("XVII", 17),
+                Arguments.of("XVIII", 18),
+                Arguments.of("XIX", 19),
+                Arguments.of("XX", 20),
 
-                ObjectArrayArguments.create("XXXVIII", 38),
-                ObjectArrayArguments.create("XXXIX", 39),
-                ObjectArrayArguments.create("XL", 40),
-                ObjectArrayArguments.create("XLI", 41),
+                Arguments.of("XXXVIII", 38),
+                Arguments.of("XXXIX", 39),
+                Arguments.of("XL", 40),
+                Arguments.of("XLI", 41),
 
-                ObjectArrayArguments.create("XLVIII", 48),
-                ObjectArrayArguments.create("XLIX", 49),
-                ObjectArrayArguments.create("L", 50),
-                ObjectArrayArguments.create("LI", 51),
-                ObjectArrayArguments.create("LII", 52),
+                Arguments.of("XLVIII", 48),
+                Arguments.of("XLIX", 49),
+                Arguments.of("L", 50),
+                Arguments.of("LI", 51),
+                Arguments.of("LII", 52),
 
-                ObjectArrayArguments.create("LXXVIII", 78),
-                ObjectArrayArguments.create("LXXIX", 79),
-                ObjectArrayArguments.create("LXXX", 80),
-                ObjectArrayArguments.create("LXXXI", 81),
-                ObjectArrayArguments.create("LXXXII", 82),
+                Arguments.of("LXXVIII", 78),
+                Arguments.of("LXXIX", 79),
+                Arguments.of("LXXX", 80),
+                Arguments.of("LXXXI", 81),
+                Arguments.of("LXXXII", 82),
 
-                ObjectArrayArguments.create("XCVIII", 98),
-                ObjectArrayArguments.create("XCIX", 99),
-                ObjectArrayArguments.create("C", 100),
-                ObjectArrayArguments.create("CI", 101),
-                ObjectArrayArguments.create("CII", 102),
+                Arguments.of("XCVIII", 98),
+                Arguments.of("XCIX", 99),
+                Arguments.of("C", 100),
+                Arguments.of("CI", 101),
+                Arguments.of("CII", 102),
 
-                ObjectArrayArguments.create("CCCXCVIII", 398),
-                ObjectArrayArguments.create("CCCXCIX", 399),
-                ObjectArrayArguments.create("CD", 400),
-                ObjectArrayArguments.create("CDI", 401),
+                Arguments.of("CCCXCVIII", 398),
+                Arguments.of("CCCXCIX", 399),
+                Arguments.of("CD", 400),
+                Arguments.of("CDI", 401),
 
-                ObjectArrayArguments.create("CDXCVIII", 498),
-                ObjectArrayArguments.create("CDXCIX", 499),
-                ObjectArrayArguments.create("D", 500),
-                ObjectArrayArguments.create("DI", 501),
-                ObjectArrayArguments.create("DII", 502),
+                Arguments.of("CDXCVIII", 498),
+                Arguments.of("CDXCIX", 499),
+                Arguments.of("D", 500),
+                Arguments.of("DI", 501),
+                Arguments.of("DII", 502),
 
-                ObjectArrayArguments.create("DC", 600),
+                Arguments.of("DC", 600),
 
-                ObjectArrayArguments.create("DCCXCIX", 799),
-                ObjectArrayArguments.create("DCCC", 800),
+                Arguments.of("DCCXCIX", 799),
+                Arguments.of("DCCC", 800),
 
 
-                ObjectArrayArguments.create("DCCCXCIX", 899),
-                ObjectArrayArguments.create("CM", 900),
+                Arguments.of("DCCCXCIX", 899),
+                Arguments.of("CM", 900),
 
-                ObjectArrayArguments.create("CMXCVIII", 998),
-                ObjectArrayArguments.create("CMXCIX", 999),
-                ObjectArrayArguments.create("M", 1000),
-                ObjectArrayArguments.create("MI", 1001),
-                ObjectArrayArguments.create("MII", 1002),
+                Arguments.of("CMXCVIII", 998),
+                Arguments.of("CMXCIX", 999),
+                Arguments.of("M", 1000),
+                Arguments.of("MI", 1001),
+                Arguments.of("MII", 1002),
 
-                ObjectArrayArguments.create("MDCCLXXVI", 1776),
-                ObjectArrayArguments.create("MCMLIV", 1954),
-                ObjectArrayArguments.create("MCMXC", 1990),
-                ObjectArrayArguments.create("MMXIV", 2014),
+                Arguments.of("MDCCLXXVI", 1776),
+                Arguments.of("MCMLIV", 1954),
+                Arguments.of("MCMXC", 1990),
+                Arguments.of("MMXIV", 2014),
 
-                ObjectArrayArguments.create("MMMCMXCIX", 3999)
+                Arguments.of("MMMCMXCIX", 3999)
         );
     }
 
     @ParameterizedTest
-    @MethodSource(names = "conversionTestData")
+    @MethodSource("conversionTestData")
     void test_convertFromRomanNumerals(String romanNumerals, int number) {
         assertEquals(number, convertFromRomanNumerals(romanNumerals));
     }
 
     @ParameterizedTest
-    @MethodSource(names = "conversionTestData")
+    @MethodSource("conversionTestData")
     void test_convertToRomanNumerals(String romanNumerals, int number) {
         assertEquals(romanNumerals, convertToRomanNumerals(number));
     }
 
     static Stream<Arguments> nonStandardConvertFromRomanNumeralsTestData() {
         return Stream.of(
-                ObjectArrayArguments.create("IIX", 8),
-                ObjectArrayArguments.create("XXXX", 40),
-                ObjectArrayArguments.create("IL", 49),
-                ObjectArrayArguments.create("IC", 99)
+                Arguments.of("IIX", 8),
+                Arguments.of("XXXX", 40),
+                Arguments.of("IL", 49),
+                Arguments.of("IC", 99)
         );
     }
 
     @ParameterizedTest
-    @MethodSource(names = "nonStandardConvertFromRomanNumeralsTestData")
+    @MethodSource("nonStandardConvertFromRomanNumeralsTestData")
     void test_that_convertFromRomanNumerals_recognizes_non_standard_numerals(String romanNumerals, int number) {
         assertEquals(number, convertFromRomanNumerals(romanNumerals));
     }
